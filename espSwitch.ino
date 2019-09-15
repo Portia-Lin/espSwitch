@@ -1,7 +1,7 @@
-/*********
+/*************
   ESP8266
   WIFI SWITCH
-*********/
+*************/
 
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
@@ -16,7 +16,7 @@ void(* resetFunc) (void) = 0;
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("");
+  Serial.println(" ");
   Serial.println("Waiting for reset wifi!");
   Serial.print(".");
   delay(1000);
@@ -37,7 +37,7 @@ void setup() {
     Serial.println("Reset saved settings!");
     }
 
-  wifiManager.autoConnect("AutoConnectAP");
+  wifiManager.autoConnect("espSwitch");
   server.on("/", index_page);
   server.on("/on", sendOn);
   server.on("/off", sendOff);
@@ -56,12 +56,14 @@ void index_page() {
 
 void sendOn() {
   digitalWrite(output, HIGH);
+  Serial.println("Set output to HIGH");
   server.sendHeader("Location","/");
   server.send(303); 
 }
 
 void sendOff() {
   digitalWrite(output, LOW);
+  Serial.println("Set output to LOW");
   server.sendHeader("Location","/");
   server.send(303); 
 }
@@ -69,5 +71,6 @@ void sendOff() {
 void sendReset() {
   server.sendHeader("Location","/");
   server.send(303);
+  Serial.println("Reboot...");
   resetFunc();
 }

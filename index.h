@@ -66,7 +66,10 @@ const char INDEX_PAGE[] PROGMEM = R"=====(
             <a class="link" href="off">Send OFF</a>
             <br>
             <br>
-            <a class="link" href="reset">Reset module</a>
+            <a class="link" href="reset">Reboot module</a>
+            <br>
+            <br>
+            <p><font color="#6D6D6D">Якщо ви натиснули кнопку <font color="#DA5868">Reboot module</font>, ви повинні самостійно перейти на головну сторінку!</font></p>
         </div>
     </div>
 </body>
