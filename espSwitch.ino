@@ -7,7 +7,7 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 
-const int output = 2;
+const int outputPin = 2;
 
 ESP8266WebServer server(80);
 
@@ -26,8 +26,9 @@ void setup() {
   Serial.println(".");
   delay(1000);
   
-  pinMode(output, OUTPUT);
-  digitalWrite(output, LOW);
+  pinMode(outputPin, OUTPUT);
+  digitalWrite(outputPin, LOW);
+  Serial.println("Set output to LOW");
 
   WiFiManager wifiManager;
 
@@ -38,8 +39,7 @@ void setup() {
 
   wifiManager.autoConnect("espSwitch");
   server.on("/", index_page);
-  server.on("/on", sendOn);
-  server.on("/off", sendOff);
+  server.on("/toggle", toggle);
   server.on("/reset", sendReset);
   server.begin();
 }
@@ -48,16 +48,32 @@ void loop() {
   server.handleClient();
 }
 
+<<<<<<< Updated upstream
 void sendOn() {
   digitalWrite(output, HIGH);
   Serial.println("Set output to HIGH");
   server.sendHeader("Location","/");
   server.send(303); 
+=======
+void index_page() {
+  String indexStart = INDEX_START;
+  String indexState;
+  if(digitalRead(outputPin) == LOW) {
+    indexState = ("<h1 class='center'>= OFF =</h1>");
+  }
+  else {
+    indexState = ("<h1 class='center'>= ON =</h1>");
+  }
+  String indexEnd = INDEX_END;
+  String page = (indexStart + indexState + indexEnd);
+  server.send(200, "text/html", page);
+>>>>>>> Stashed changes
 }
 
-void sendOff() {
-  digitalWrite(output, LOW);
-  Serial.println("Set output to LOW");
+void toggle() {
+  digitalWrite(outputPin, !digitalRead(outputPin));
+  Serial.print("Set output to: ");
+  Serial.println(digitalRead(outputPin));
   server.sendHeader("Location","/");
   server.send(303); 
 }
