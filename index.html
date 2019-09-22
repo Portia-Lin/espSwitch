@@ -1,10 +1,8 @@
-const char INDEX_START[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <head>
-    <title>Main page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0">
-    <link href="all.css" rel="stylesheet">
+    <title>[ Hostname ]</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width = device-width, initial-scale = 1.0, maximum-scale = 1.0'>
     <style>
         body {
             background-color: #F7F9FD;
@@ -44,29 +42,26 @@ const char INDEX_START[] PROGMEM = R"=====(
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 class="center">
-                <font color="#DA5868">Hello!</font>
+    <div class='container'>
+        <div class='header'>
+            <h1 class='center'>
+                <font color='#DA5868'>Hello!</font>
             </h1>
-            <h3 class="center">[ Hostname ]</h3>
-)=====";
-
-const char INDEX_END[] PROGMEM = R"=====(
-        </div>
-        <div class="menu">
+            <h3 class='center'>[ Hostname ]</h3>
+            <h1 class='center'>= OFF =</h1>
+            </div>
+        <div class='menu'>
             <br>
-            <a class="link" href="toggle">Toggle</a>
+            <a class='link' href='toggle'>Toggle</a>
             <br>
-            <a class="link" href="/">Refresh</a>
+            <a class='link' href='/'>Refresh</a>
             <br>
-            <a class="link" href="reset">Reboot module</a>
+            <a class='link' href='reboot'>Reboot module</a>
             <br>
             <br>
-            <p><font color="#6D6D6D">Натисніть <font color="#DA5868">Refresh</font>, щоб оновити інформацію на сторінці.</font></p>
-            <p><font color="#6D6D6D">Натисніть <font color="#DA5868">Reboot</font>, щоб перезавантажити модуль.</font></p>
+            <p><font color='#6D6D6D'>Натисніть <font color='#DA5868'>Refresh</font>, щоб оновити інформацію на сторінці.</font></p>
+            <p><font color='#6D6D6D'>Натисніть <font color='#DA5868'>Reboot</font>, щоб перезавантажити модуль.</font></p>
         </div>
     </div>
 </body>
 </html>
-)=====";
