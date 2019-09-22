@@ -16,7 +16,7 @@ void(* resetFunc) (void) = 0;
 
 void setup() {
   Serial.begin(115200);
-  Serial.println(" ");
+  Serial.println(" \n ");
   Serial.println("Waiting for reset wifi!");
   Serial.print(".");
   delay(1000);
