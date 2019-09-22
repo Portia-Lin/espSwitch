@@ -3,7 +3,7 @@
 
 Find the **espSwitch** wifi in the list. Connect to it.
 
-![WiFi list](https://i.ibb.co/7XLJJCS/Screenshot-2019-09-22-15-45-40-319-com-android-settings.png) 
+![WiFi list](https://i.ibb.co/zRgwzhV/1.png) 
 
 Go to **ip 192.168.4.1** and configure your wifi connection.
 
